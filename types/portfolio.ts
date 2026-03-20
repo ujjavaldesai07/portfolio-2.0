@@ -28,6 +28,7 @@ export type ProjectItem = {
   mediaUrl?: string;
   videoUrl?: string;
   thumbnailUrl?: string;
+  thumbnailClassName?: string;
   githubUrl?: string;
   accent: string;
 };

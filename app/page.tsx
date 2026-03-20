@@ -63,7 +63,7 @@ export default function Home() {
       <div className="hero-grid" />
       <Navigation items={portfolioData.nav} />
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-12 pt-8 sm:px-6 sm:pb-14 sm:pt-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:px-10 lg:pb-20 lg:pt-12">
+      <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-12 pt-28 sm:px-6 sm:pb-14 sm:pt-32 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:px-10 lg:pb-20 lg:pt-32">
         <ScrollReveal direction="left" className="relative z-10">
           <div className="inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-4 py-2.5 text-xs font-medium text-violet-200 shadow-[0_0_24px_rgba(139,92,246,0.28)] sm:px-5 sm:py-3 sm:text-base">
             <Sparkles size={16} />

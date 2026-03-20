@@ -58,25 +58,25 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                     fill
                     sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
                     quality={68}
-                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    className={`object-cover transition duration-500 group-hover:scale-[1.02] ${project.thumbnailClassName ?? "object-top"}`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/78 via-slate-950/28 to-slate-950/10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/58 via-slate-950/18 to-transparent" />
                 </>
               ) : null}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.35),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.5),transparent_35%)]" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.18),transparent_30%)]" />
               <div className="absolute inset-x-6 top-6 flex items-center justify-between">
-                <span className="rounded-full border border-white/20 bg-slate-950/35 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur">
+                <span className="project-card-badge rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] backdrop-blur">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <span className="rounded-full border border-white/25 bg-slate-950/25 p-3 text-white backdrop-blur">
+                <span className="project-card-action rounded-full border p-3 backdrop-blur">
                   {project.mediaType === "youtube" ? <Play size={18} /> : <ArrowUpRight size={18} />}
                 </span>
               </div>
-              <div className="relative z-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/80">
+              <div className="project-card-title relative z-10 rounded-[1.25rem] px-4 py-3 backdrop-blur-sm">
+                <p className="project-card-kicker text-xs font-semibold uppercase tracking-[0.28em]">
                   {project.mediaType === "youtube" ? "Video walkthrough" : "Project overview"}
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold text-white">{project.title}</h3>
+                <h3 className="project-card-heading mt-2 text-2xl font-semibold">{project.title}</h3>
               </div>
             </div>
             <div className="space-y-4 p-6">

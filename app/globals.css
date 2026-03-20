@@ -175,7 +175,6 @@ html[data-theme="light"] .text-violet-200 {
 }
 
 .theme-toggle:hover {
-  transform: translateY(-1px);
   background: var(--surface-muted);
 }
 
@@ -205,6 +204,32 @@ html[data-theme="light"] .text-violet-200 {
   opacity: 1;
   filter: blur(0);
   transform: translate3d(0, 0, 0);
+}
+
+.project-card-badge {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(15, 23, 42, 0.62);
+  color: #fff;
+}
+
+.project-card-action {
+  border-color: rgba(255, 255, 255, 0.26);
+  background: rgba(15, 23, 42, 0.62);
+  color: #fff;
+}
+
+.project-card-title {
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.project-card-kicker {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+.project-card-heading {
+  color: #ffffff !important;
+  text-shadow: 0 1px 10px rgba(15, 23, 42, 0.45);
 }
 
 .deferred-section {
@@ -300,7 +325,8 @@ html[data-theme="light"] .text-white\/70,
 html[data-theme="light"] .text-white\/65,
 html[data-theme="light"] .text-white\/60,
 html[data-theme="light"] .text-white\/50,
-html[data-theme="light"] .text-white\/45 {
+html[data-theme="light"] .text-white\/45,
+html[data-theme="light"] .text-white\/40 {
   color: rgba(15, 23, 42, 0.72) !important;
 }
 
@@ -352,6 +378,31 @@ html[data-theme="light"] .mobile-menu-panel {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   opacity: 1 !important;
+}
+
+html[data-theme="light"] .project-card-badge {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .project-card-action {
+  border-color: rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+}
+
+html[data-theme="light"] .project-card-title {
+  background: rgba(15, 23, 42, 0.82);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="light"] .project-card-kicker {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html[data-theme="light"] .project-card-heading {
+  color: #ffffff !important;
 }
 
 html[data-theme="light"] .shadow-2xl,

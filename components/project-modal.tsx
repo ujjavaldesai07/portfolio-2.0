@@ -44,7 +44,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         onClick={onClose}
         className="absolute inset-0 h-full w-full bg-slate-950/88 backdrop-blur-md"
       />
-      <div className="relative z-10 flex min-h-full items-center justify-center overflow-y-auto p-4 sm:p-6 lg:p-8">
+      <div
+        className="relative z-10 flex min-h-full items-center justify-center overflow-y-auto p-4 sm:p-6 lg:p-8"
+        onClick={onClose}
+      >
         <div
           className="relative w-full max-w-6xl rounded-[1.6rem] border border-white/10 bg-[#0b1020] shadow-2xl shadow-black/60 sm:max-h-[92vh] sm:overflow-auto sm:rounded-[2rem]"
           onClick={(event) => event.stopPropagation()}
