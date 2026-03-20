@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, Moon, MoveUpRight, Sun } from "lucide-react";
 
 import type { NavItem } from "@/types/portfolio";
@@ -12,6 +12,8 @@ type NavigationProps = {
 export function Navigation({ items }: NavigationProps) {
   const [activeHref, setActiveHref] = useState("#top");
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
@@ -104,6 +106,28 @@ export function Navigation({ items }: NavigationProps) {
     };
   }, [items]);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      return;
+    }
+
+    const onPointerDown = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as Node | null;
+
+      if (mobileMenuRef.current && target && !mobileMenuRef.current.contains(target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown, { passive: true });
+
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("touchstart", onPointerDown);
+    };
+  }, [mobileMenuOpen]);
+
   const toggleTheme = () => {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
@@ -111,10 +135,10 @@ export function Navigation({ items }: NavigationProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[rgba(6,8,18,0.72)] backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-6 lg:px-10">
         <a
           href="#top"
-          className="brand-link text-base font-semibold uppercase tracking-[0.32em] text-cyan-300 transition hero-highlight"
+          className="brand-link text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300 transition hero-highlight sm:text-base sm:tracking-[0.32em]"
         >
           Ujjaval Desai
         </a>
@@ -141,13 +165,19 @@ export function Navigation({ items }: NavigationProps) {
             <span>{theme === "dark" ? "Light" : "Dark"}</span>
           </button>
         </nav>
-        <div className="md:hidden">
-          <details className="group relative">
-            <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80">
-              <Menu size={16} />
-              Menu
-            </summary>
-            <div className="absolute right-0 mt-3 w-52 rounded-3xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl shadow-black/30">
+        <div ref={mobileMenuRef} className="relative md:hidden">
+          <button
+            type="button"
+            aria-expanded={mobileMenuOpen}
+            aria-label="Toggle navigation menu"
+            onClick={() => setMobileMenuOpen((current) => !current)}
+            className="mobile-menu-trigger flex cursor-pointer list-none items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-2 text-sm text-white/80"
+          >
+            <Menu size={16} />
+            Menu
+          </button>
+          {mobileMenuOpen ? (
+            <div className="mobile-menu-panel absolute right-0 mt-3 w-[min(18rem,calc(100vw-2.5rem))] rounded-3xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl shadow-black/30">
               <button
                 type="button"
                 onClick={toggleTheme}
@@ -160,7 +190,10 @@ export function Navigation({ items }: NavigationProps) {
                 <a
                   key={item.href}
                   href={item.href}
-                  onClick={() => setActiveHref(item.href)}
+                  onClick={() => {
+                    setActiveHref(item.href);
+                    setMobileMenuOpen(false);
+                  }}
                   className={`nav-link flex items-center justify-between rounded-2xl px-4 py-3 text-base font-semibold transition hover:bg-white/5 ${activeHref === item.href ? "is-active" : ""}`}
                 >
                   <span className="nav-link-label">{item.label}</span>
@@ -168,7 +201,7 @@ export function Navigation({ items }: NavigationProps) {
                 </a>
               ))}
             </div>
-          </details>
+          ) : null}
         </div>
       </div>
     </header>
