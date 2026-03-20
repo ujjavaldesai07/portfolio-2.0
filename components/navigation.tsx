@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Menu, MoveUpRight } from "lucide-react";
+import { Menu, Moon, MoveUpRight, Sun } from "lucide-react";
 
 import type { NavItem } from "@/types/portfolio";
 
@@ -11,6 +11,23 @@ type NavigationProps = {
 
 export function Navigation({ items }: NavigationProps) {
   const [activeHref, setActiveHref] = useState("#top");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
+
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+
+    if (storedTheme === "light") {
+      window.requestAnimationFrame(() => {
+        setTheme("light");
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const observedSections = items
@@ -87,6 +104,11 @@ export function Navigation({ items }: NavigationProps) {
     };
   }, [items]);
 
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-white/10 bg-[rgba(6,8,18,0.72)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
@@ -109,6 +131,15 @@ export function Navigation({ items }: NavigationProps) {
               </span>
             </a>
           ))}
+          <button
+            type="button"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            onClick={toggleTheme}
+            className="theme-toggle inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            <span>{theme === "dark" ? "Light" : "Dark"}</span>
+          </button>
         </nav>
         <div className="md:hidden">
           <details className="group relative">
@@ -117,6 +148,14 @@ export function Navigation({ items }: NavigationProps) {
               Menu
             </summary>
             <div className="absolute right-0 mt-3 w-52 rounded-3xl border border-white/10 bg-slate-950/95 p-3 shadow-2xl shadow-black/30">
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="theme-toggle mb-2 flex w-full items-center justify-between rounded-2xl border px-4 py-3 text-sm font-semibold transition"
+              >
+                <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+              </button>
               {items.map((item) => (
                 <a
                   key={item.href}

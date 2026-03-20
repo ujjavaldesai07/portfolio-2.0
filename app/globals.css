@@ -3,6 +3,12 @@
 :root {
   --background: #050816;
   --foreground: #f8fafc;
+  --surface-soft: rgba(255, 255, 255, 0.03);
+  --surface-muted: rgba(255, 255, 255, 0.05);
+  --surface-strong: rgba(11, 15, 27, 1);
+  --border-soft: rgba(255, 255, 255, 0.1);
+  --text-soft: rgba(248, 250, 252, 0.8);
+  --text-muted: rgba(248, 250, 252, 0.6);
   --font-sans:
     "Satoshi", "Avenir Next", "Segoe UI", "Helvetica Neue", "Nimbus Sans", sans-serif;
   --font-display:
@@ -35,6 +41,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-theme="light"] {
+  --background: #eef4ff;
+  --foreground: #0f172a;
+  --surface-soft: rgba(255, 255, 255, 0.74);
+  --surface-muted: rgba(255, 255, 255, 0.88);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --border-soft: rgba(15, 23, 42, 0.12);
+  --text-soft: rgba(15, 23, 42, 0.86);
+  --text-muted: rgba(15, 23, 42, 0.62);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.16), transparent 28%),
+    radial-gradient(circle at 80% 12%, rgba(168, 85, 247, 0.12), transparent 24%),
+    linear-gradient(180deg, #f8fbff 0%, #eef4ff 42%, #e7efff 100%);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -59,6 +83,14 @@ select {
     radial-gradient(circle at 55% 70%, rgba(217, 70, 239, 0.12), transparent 28%);
 }
 
+html[data-theme="light"] .page-glow {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(168, 85, 247, 0.12), transparent 24%),
+    radial-gradient(circle at 72% 28%, rgba(244, 63, 94, 0.08), transparent 24%),
+    radial-gradient(circle at 95% 16%, rgba(34, 211, 238, 0.09), transparent 22%),
+    radial-gradient(circle at 55% 70%, rgba(99, 102, 241, 0.08), transparent 28%);
+}
+
 .hero-grid {
   pointer-events: none;
   position: fixed;
@@ -69,6 +101,12 @@ select {
     linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6) 65%, transparent);
+}
+
+html[data-theme="light"] .hero-grid {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
 }
 
 .hero-panel {
@@ -107,12 +145,36 @@ select {
   color: rgba(255, 255, 255, 0.65);
 }
 
+html[data-theme="light"] .nav-link .nav-link-label {
+  color: rgba(15, 23, 42, 0.66);
+}
+
+html[data-theme="light"] .text-cyan-300 {
+  color: #0f766e !important;
+}
+
+html[data-theme="light"] .text-violet-200 {
+  color: #7c3aed !important;
+}
+
 .brand-link:hover {
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 52%, #c084fc 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+.theme-toggle {
+  border-color: var(--border-soft);
+  background: var(--surface-soft);
+  color: var(--text-soft);
+  backdrop-filter: blur(14px);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  background: var(--surface-muted);
 }
 
 .scroll-reveal {
@@ -152,10 +214,105 @@ select {
   color: transparent;
 }
 
+html[data-theme="light"] .nav-link:hover .nav-link-label,
+html[data-theme="light"] .nav-link.is-active .nav-link-label {
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  -webkit-text-fill-color: #0f766e;
+  color: #0f766e;
+}
+
 @media (min-width: 1024px) {
   .hero-panel {
     padding-top: 3.5rem;
   }
+}
+
+html[data-theme="light"] .text-white,
+html[data-theme="light"] .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .text-white\/80,
+html[data-theme="light"] .text-white\/78,
+html[data-theme="light"] .text-white\/74,
+html[data-theme="light"] .text-white\/75,
+html[data-theme="light"] .text-white\/70,
+html[data-theme="light"] .text-white\/65,
+html[data-theme="light"] .text-white\/60,
+html[data-theme="light"] .text-white\/50,
+html[data-theme="light"] .text-white\/45 {
+  color: rgba(15, 23, 42, 0.72) !important;
+}
+
+html[data-theme="light"] .border-white\/10,
+html[data-theme="light"] .border-white\/8,
+html[data-theme="light"] .border-white\/20,
+html[data-theme="light"] .border-white\/25 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html[data-theme="light"] .bg-white\/\[0\.03\],
+html[data-theme="light"] .bg-white\/\[0\.04\],
+html[data-theme="light"] .bg-white\/\[0\.05\],
+html[data-theme="light"] .bg-white\/5,
+html[data-theme="light"] .bg-white\/10,
+html[data-theme="light"] .bg-slate-950\/35,
+html[data-theme="light"] .bg-slate-950\/40,
+html[data-theme="light"] .bg-slate-950\/88,
+html[data-theme="light"] .bg-slate-950\/95 {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html[data-theme="light"] .bg-\[\#0b0f1b\],
+html[data-theme="light"] .bg-\[\#0b1020\],
+html[data-theme="light"] .bg-\[\#070312\],
+html[data-theme="light"] .bg-\[\#0d061b\],
+html[data-theme="light"] .bg-\[\#050816\],
+html[data-theme="light"] .bg-\[\#15131b\] {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+}
+
+html[data-theme="light"] .bg-\[rgba\(6\,8\,18\,0\.72\)\] {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html[data-theme="light"] .shadow-2xl,
+html[data-theme="light"] .shadow-\[0_0_32px_rgba\(109\,40\,217\,0\.16\)\],
+html[data-theme="light"] .shadow-\[0_0_26px_rgba\(109\,40\,217\,0\.28\)\],
+html[data-theme="light"] .shadow-\[0_0_28px_rgba\(109\,40\,217\,0\.24\)\] {
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08) !important;
+}
+
+html[data-theme="light"] .bg-\[\#070312\].ring-violet-500\/20,
+html[data-theme="light"] .bg-\[\#0b0f1b\].border-violet-500\/20 {
+  border-color: rgba(124, 58, 237, 0.42) !important;
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.22),
+    0 0 22px rgba(124, 58, 237, 0.24),
+    0 0 44px rgba(124, 58, 237, 0.28),
+    0 0 72px rgba(124, 58, 237, 0.16) !important;
+}
+
+html[data-theme="light"] .bg-\[\#070312\].ring-violet-500\/20:hover,
+html[data-theme="light"] .bg-\[\#0b0f1b\].border-violet-500\/20:hover {
+  box-shadow:
+    0 0 0 1px rgba(124, 58, 237, 0.28),
+    0 0 28px rgba(124, 58, 237, 0.3),
+    0 0 54px rgba(124, 58, 237, 0.34),
+    0 0 88px rgba(124, 58, 237, 0.2) !important;
+}
+
+html[data-theme="light"] .backdrop-blur-md,
+html[data-theme="light"] .backdrop-blur-xl {
+  backdrop-filter: blur(18px);
+}
+
+html[data-theme="light"] .border-violet-400\/20,
+html[data-theme="light"] .border-violet-500\/20,
+html[data-theme="light"] .ring-violet-500\/20 {
+  border-color: rgba(124, 58, 237, 0.18) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
