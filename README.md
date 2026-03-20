@@ -66,6 +66,18 @@ This includes:
 - Light mode is available from the navigation bar
 - Theme styles live in [app/globals.css](/Users/ujjaval/Portfolio-2.0/app/globals.css)
 
+## Google Analytics
+
+Google Analytics is supported through an environment variable.
+
+Set this in your local `.env.local` or in Netlify environment variables:
+
+```bash
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
+
+Once this variable is present, the site will load Google Analytics automatically.
+
 ## Testing
 
 Unit tests are powered by Vitest and Testing Library.
