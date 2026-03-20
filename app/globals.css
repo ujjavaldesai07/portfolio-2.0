@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050816;
+  --foreground: #f8fafc;
+  --font-sans:
+    "Satoshi", "Avenir Next", "Segoe UI", "Helvetica Neue", "Nimbus Sans", sans-serif;
+  --font-display:
+    "Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Times New Roman", serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.14), transparent 28%),
+    radial-gradient(circle at 80% 12%, rgba(251, 191, 36, 0.12), transparent 22%),
+    linear-gradient(180deg, #07101f 0%, #040713 42%, #050816 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.page-glow {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(168, 85, 247, 0.14), transparent 24%),
+    radial-gradient(circle at 72% 28%, rgba(244, 63, 94, 0.12), transparent 24%),
+    radial-gradient(circle at 95% 16%, rgba(34, 211, 238, 0.1), transparent 22%),
+    radial-gradient(circle at 55% 70%, rgba(217, 70, 239, 0.12), transparent 28%);
+}
+
+.hero-grid {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6) 65%, transparent);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.hero-highlight {
+  display: inline-block;
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 52%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.typing-accent {
+  color: #ffffff;
+  line-height: 1;
+}
+
+.typing-cursor {
+  display: inline-block;
+  margin-left: 0.28rem;
+  height: 0.95em;
+  width: 3px;
+  vertical-align: -0.08em;
+  border-radius: 999px;
+  background-color: #a855f7;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.85);
+  animation: blink-cursor 0.9s steps(1) infinite;
+}
+
+.nav-link .nav-link-label {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.brand-link:hover {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 52%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  filter: blur(14px);
+  transition:
+    opacity 0.85s ease,
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s ease;
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal-left {
+  transform: translate3d(-120px, 0, 0);
+}
+
+.scroll-reveal-right {
+  transform: translate3d(120px, 0, 0);
+}
+
+.scroll-reveal-up {
+  transform: translate3d(0, 72px, 0);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0);
+}
+
+.nav-link:hover .nav-link-label,
+.nav-link.is-active .nav-link-label {
+  background: linear-gradient(180deg, #22d3ee 0%, #38bdf8 42%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+@media (min-width: 1024px) {
+  .hero-panel {
+    padding-top: 3.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .scroll-reveal-up {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes blink-cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
