@@ -58,7 +58,7 @@ export function ProjectShowcase({ projects }: ProjectShowcaseProps) {
                     fill
                     sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
                     quality={68}
-                    className={`object-cover transition duration-500 group-hover:scale-[1.02] ${project.thumbnailClassName ?? "object-top"}`}
+                    className="object-cover object-top transition duration-500 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/58 via-slate-950/18 to-transparent" />
                 </>

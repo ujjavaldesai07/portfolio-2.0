@@ -8,13 +8,6 @@ describe("portfolioData", () => {
     expect(new Set(hrefs).size).toBe(hrefs.length);
   });
 
-  it("keeps social links populated", () => {
-    expect(portfolioData.socialLinks.length).toBeGreaterThan(0);
-    expect(portfolioData.socialLinks.some((link) => link.label === "GitHub")).toBe(
-      true,
-    );
-  });
-
   it("ensures project entries have valid media configuration", () => {
     portfolioData.projects.forEach((project) => {
       expect(project.title.length).toBeGreaterThan(0);
@@ -30,11 +23,7 @@ describe("portfolioData", () => {
     });
   });
 
-  it("keeps social links and contact links usable", () => {
-    portfolioData.socialLinks.forEach((link) => {
-      expect(link.href.startsWith("https://")).toBe(true);
-    });
-
+  it("keeps contact links usable", () => {
     portfolioData.contact.forEach((item) => {
       expect(item.href.length).toBeGreaterThan(0);
     });

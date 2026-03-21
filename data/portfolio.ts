@@ -10,22 +10,12 @@ export const portfolioData: PortfolioData = {
     { label: "Education", href: "#education" },
     { label: "Contact", href: "#contact" },
   ],
-  name: "Ujjaval Desai",
   title: "Ready to Innovate",
-  subTitle: "Tech Enthusiast",
   heroBlurb:
     "Designing cloud-native systems, resilient backends, and polished front-end experiences that accelerate delivery.",
-  aboutHeadline: "Software engineer focused on building solutions that matter.",
-  aboutParagraphs: [
-    "Hello! I’m a Senior Full Stack Engineer with 9+ years in cloud-native and distributed systems. Expertise in backend microservices and end-to-end development across APIs, UI, and cloud infrastructure. Passionate about scalable, maintainable, high-impact solutions.",
-  ],
   stats: [
     { label: "Years building software", value: "9+" },
     { label: "Core focus", value: "Cloud + Full Stack" },
-  ],
-  socialLinks: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/ujjavaldesai" },
-    { label: "GitHub", href: "https://github.com/ujjavaldesai07" },
   ],
   experiences: [
     {
@@ -71,12 +61,12 @@ export const portfolioData: PortfolioData = {
     {
       title: "Shoppers",
       summary:
-        "Microservices eCommerce platform with payments, OAuth, and CDN-backed media delivery.",
+        "Microservices eCommerce platform with payments, and CDN-backed media delivery.",
       description:
         "Shoppers is an eCommerce website that allows users to shop clothing and other essentials. The platform was built around a microservices architecture and focused on responsive shopping flows, secure payments, and deployment-friendly local testing.",
       techStack: [
-        "Spring Boot",
         "React",
+        "Spring Boot",
         "MySQL",
         "Redis",
         "Redux",
@@ -92,7 +82,6 @@ export const portfolioData: PortfolioData = {
       mediaUrl: "https://youtu.be/PQ1c0Ag0DcA",
       videoUrl: "https://youtu.be/PQ1c0Ag0DcA",
       thumbnailUrl: "/projects/shoppers.png",
-      thumbnailClassName: "object-[center_top]",
       githubUrl:
         "https://github.com/ujjavaldesai07/spring-boot-react-ecommerce-app",
       accent: "from-amber-300 via-orange-500 to-rose-500",
@@ -104,10 +93,10 @@ export const portfolioData: PortfolioData = {
       description:
         "Messenger is a chat application that allows users to communicate in a dark theme experience. The application uses GraphQL subscriptions over WebSocket for real-time messaging and keeps the UI responsive through Redux-managed state.",
       techStack: [
-        "Node.js",
         "React",
-        "GraphQL",
+        "Node.js",
         "MongoDB",
+        "GraphQL",
         "GraphQL Subscriptions",
         "WebSocket",
         "Redux",
@@ -118,7 +107,6 @@ export const portfolioData: PortfolioData = {
       mediaUrl: "https://youtu.be/vfZMLAbNMGI",
       videoUrl: "https://youtu.be/vfZMLAbNMGI",
       thumbnailUrl: "/projects/messenger.png",
-      thumbnailClassName: "object-[center_18%]",
       githubUrl:
         "https://github.com/ujjavaldesai07/messenger-reactjs-graphql-nodejs-mongodb",
       accent: "from-sky-300 via-cyan-500 to-blue-700",
@@ -130,21 +118,20 @@ export const portfolioData: PortfolioData = {
       description:
         "Self-Assessment is an application to assess whether a user needs cloud connectivity support. It pairs a Spring Boot API with a React front end and emphasizes documentation, logging, secure access, and deployment on AWS.",
       techStack: [
-        "Spring Boot",
         "React",
+        "Spring Boot",
+        "MySQL",
         "REST API",
         "Swagger UI",
         "Logback",
         "Redux",
         "Material UI",
         "Bootstrap",
-        "MySQL",
       ],
       mediaType: "youtube",
       mediaUrl: "https://youtu.be/bBZvGnXbe0w",
       videoUrl: "https://youtu.be/bBZvGnXbe0w",
       thumbnailUrl: "/projects/self-assessment.png",
-      thumbnailClassName: "object-[center_42%]",
       accent: "from-emerald-300 via-teal-500 to-cyan-700",
     },
   ],

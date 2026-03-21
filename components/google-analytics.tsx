@@ -23,6 +23,7 @@ export function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
       return;
     }
 
+    // Re-send page view data on client-side route changes in the App Router.
     const search = window.location.search;
     const pagePath = search ? `${pathname}?${search}` : pathname;
 

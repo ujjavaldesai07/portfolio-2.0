@@ -25,6 +25,7 @@ export function ScrollReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Defer the state flip to the next frame so the transition starts cleanly.
           window.requestAnimationFrame(() => {
             setIsVisible(true);
           });

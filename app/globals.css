@@ -127,7 +127,8 @@ html[data-theme="light"] .hero-grid {
 
 .typing-accent {
   color: #ffffff;
-  line-height: 1;
+  line-height: 1.15;
+  padding-bottom: 0.08em;
 }
 
 .typing-cursor {

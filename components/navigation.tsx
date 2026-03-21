@@ -70,6 +70,7 @@ export function Navigation({ items }: NavigationProps) {
       }
     };
 
+    // Track the section with the strongest visible area so the nav updates while scrolling.
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -111,6 +112,7 @@ export function Navigation({ items }: NavigationProps) {
       return;
     }
 
+    // Close the mobile drawer when the pointer lands outside its container.
     const onPointerDown = (event: MouseEvent | TouchEvent) => {
       const target = event.target as Node | null;
 

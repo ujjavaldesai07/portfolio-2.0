@@ -87,14 +87,16 @@ export default function Home() {
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2.5 sm:gap-3">
-            {["React", "TypeScript", "Spring Boot", "AWS"].map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-xs text-white/80 shadow-[0_0_20px_rgba(15,23,42,0.18)] backdrop-blur sm:px-5 sm:py-3 sm:text-base"
-              >
-                {item}
-              </span>
-            ))}
+            {["React", "TypeScript", "Spring Boot", "Kubernetes", "AWS"].map(
+              (item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-xs text-white/80 shadow-[0_0_20px_rgba(15,23,42,0.18)] backdrop-blur sm:px-5 sm:py-3 sm:text-base"
+                >
+                  {item}
+                </span>
+              ),
+            )}
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap sm:gap-4">

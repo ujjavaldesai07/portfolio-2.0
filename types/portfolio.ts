@@ -3,11 +3,6 @@ export type NavItem = {
   href: string;
 };
 
-export type SocialLink = {
-  label: string;
-  href: string;
-};
-
 export type ExperienceItem = {
   company: string;
   role: string;
@@ -28,7 +23,6 @@ export type ProjectItem = {
   mediaUrl?: string;
   videoUrl?: string;
   thumbnailUrl?: string;
-  thumbnailClassName?: string;
   githubUrl?: string;
   accent: string;
 };
@@ -62,14 +56,9 @@ export type ContactItem = {
 
 export type PortfolioData = {
   nav: NavItem[];
-  name: string;
   title: string;
-  subTitle: string;
   heroBlurb: string;
-  aboutHeadline: string;
-  aboutParagraphs: string[];
   stats: { label: string; value: string }[];
-  socialLinks: SocialLink[];
   experiences: ExperienceItem[];
   projects: ProjectItem[];
   skills: SkillGroup[];
